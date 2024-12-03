@@ -1,6 +1,13 @@
 # Filler - HTML Generator
 
-**Filler - HTML Generator** is a web-based tool created by ScriptIT, the Coding Club of IISER Thiruvananthapuram. It is designed to convert custom Filler script into formatted HTML content quickly and easily. This tool simplifies the process of creating structured HTML content for events, announcements, and other communications, allowing you to focus on content creation rather than manual coding.
+**Filler v1.0 - HTML Generator** is a web-based tool created by ScriptIT, the Coding Club of IISER Thiruvananthapuram. It is designed to convert custom Filler script into formatted HTML content quickly and easily. This tool simplifies the process of creating structured HTML content for events, announcements, and other communications, allowing you to focus on content creation rather than manual coding.
+
+---
+
+## Updates in Progress:
+- Images linked in the html Header and Footer are hosted in my GDrive. It will be shifted to GitHub soon.
+- Optimized algorithm creation is underway, for even faster generation.
+- More basic functions are being added.
 
 ---
 
