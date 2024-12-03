@@ -68,16 +68,16 @@ info{
     Date: 17-12-24
     Time: 2200 Hours
     Venue: LHC Venus
-    Speakers: Ashutosh Kumar and Krishna Kumar Singh
+    Speakers: Sanjay Kritic
 }
 
 rectangle{
-    image: https://lh3.googleusercontent.com/d/1ti6lstUddSRzBH_smE2DkTrWUeMtQ2AG
-    name: Ashutosh Kumar
+    image: https://picsum.photos/700/700/
+    name: Sanjay Kritic
     Batch: 2019
-    Dept: Faculty of Information Technology, University of Jyväskylä
+    Dept: Faculty of IIT Dholakpur
     Research Focus: Quantum Information and Computation
-    About: Ashutosh is a trailblazer in the field of quantum computing, leveraging his expertise to solve problems at the intersection of information theory and computation.
+    About: This is a guy. Nice. He likes Game Of Thrones Season 7. I dont like him.
 }
 
 divider{}
@@ -93,6 +93,4 @@ body{
         Have fun!! :D
     }
     We can't wait to see you there!
-
-    image{https://picsum.photos/700/1000/}
 }
