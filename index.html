@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filler - ScriptIT HTML Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>Filler to HTML Converter</h1>
+                    <p class="subtitle">Convert Filler script to HTML with ease</p>
+                </div>
+                <div class="header-controls">
+                    <button id="help-btn" class="icon-btn" title="Show Help">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <path d="M12 17h.01"/>
+                        </svg>
+                    </button>
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="editor-container">
+            <textarea id="editor" placeholder="Enter your Filler script here..."></textarea>
+            <div class="button-container">
+                <button id="generate">Generate HTML</button>
+                <button id="copy">Copy to Clipboard</button>
+                <button id="download">Download HTML</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Filler Language Guide</h2>
+                <button id="close-help" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="functions">Functions</button>
+                    <button class="tab-btn" data-tab="examples">Examples</button>
+                </div>
+
+                <!-- Overview Tab -->
+                <div class="tab-content active" id="overview">
+                    <h3>What is Filler?</h3>
+                    <p>Filler is a simple scripting language created by ScriptIT (The Coding Club of IISER Thiruvananthapuram) to generate structured HTML content for events. It simplifies the process of creating formatted content with various elements like text, images, and links.</p>
+                    
+                    <div class="example-section">
+                        <h3>Basic Structure</h3>
+                        <pre><code>title{Event Title}
+
+topic{Main Topic}
+
+body{
+    Your content here
+    bold{Important text}
+    pointers{
+        Point 1
+        Point 2
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Functions Tab -->
+                <div class="tab-content" id="functions">
+                    <h3>Available Functions</h3>
+                    
+                    <div class="function-card">
+                        <h4>title</h4>
+                        <p>Creates a title heading for your content</p>
+                        <div class="function-example">
+                            <code>title{Alumni Discussion}</code>
+                            <div class="code-explanation">
+                                Creates a main heading: "Alumni Discussion"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-card">
+                        <h4>topic</h4>
+                        <p>Defines the main topic or subtitle</p>
+                        <div class="function-example">
+                            <code>topic{Unix and their Advantages}</code>
+                            <div class="code-explanation">
+                                Creates a subtitle: "Unix and their Advantages"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-card">
+                        <h4>body</h4>
+                        <p>Contains the main content with various formatting options</p>
+                        <div class="function-example">
+                            <code>body{
+    // Regular text
+    Welcome to our workshop!
+    
+    // Large bold text
+    bigbold{Join us for an exciting session}
+    
+    // Bold text
+    bold{Important information:}
+    
+    // Italic text
+    italic{Registration closes soon}
+    
+    // Bold and italic text
+    bolditalic{Don't miss out!}
+    
+    // Large, bold, and italic text
+    bigbolditalic{Special Announcement}
+    
+    // Bulleted list
+    pointers{
+        Basic concepts
+        Advanced topics
+        Hands-on practice
+    }
+    
+    // Image
+    image{https://example.com/workshop.jpg}
+}</code>
+                            <div class="code-explanation">
+                                Each formatting option can be used independently or combined within the body.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-card">
+                        <h4>info</h4>
+                        <p>Displays event details in a structured format</p>
+                        <div class="function-example">
+                            <code>info{
+    // Event date
+    Date: 17-12-24
+    
+    // Event time
+    Time: 2200 Hours
+    
+    // Location
+    Venue: LHC Venus
+    
+    // Speaker information
+    Speakers: Ashutosh Kumar and Krishna Kumar Singh
+}</code>
+                            <div class="code-explanation">
+                                Creates a formatted information box with event details.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-card">
+                        <h4>rectangle</h4>
+                        <p>Creates a speaker/profile card with details</p>
+                        <div class="function-example">
+                            <code>rectangle{
+    // Profile image URL
+    image: https://example.com/image.jpg
+    
+    // Full name
+    name: Ashutosh Kumar
+    
+    // Batch information
+    Batch: 2019
+    
+    // Department/Institution
+    Dept: Faculty of Information Technology, University of Jyväskylä
+    
+    // Area of expertise
+    Research Focus: Quantum Information and Computation
+    
+    // Brief biography
+    About: Ashutosh is a trailblazer in the field of quantum computing
+}</code>
+                            <div class="code-explanation">
+                                Creates a profile card with image and detailed information.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-card">
+                        <h4>divider</h4>
+                        <p>Adds a horizontal line to separate content sections</p>
+                        <div class="function-example">
+                            <code>divider{}</code>
+                            <div class="code-explanation">
+                                Inserts a horizontal line for visual separation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-card">
+                        <h4>link</h4>
+                        <p>Creates a hyperlink with custom text</p>
+                        <div class="function-example">
+                            <code>// Basic link with text and URL
+link{Join our WhatsApp Group url{https://chat.whatsapp.com/...}}
+
+// Can be used within body
+body{
+    Click here to register:
+    link{Register Now url{https://forms.example.com}}
+}</code>
+                            <div class="code-explanation">
+                                Creates clickable links with custom text.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Examples Tab -->
+                <div class="tab-content" id="examples">
+                    <h3>Complete Event Example</h3>
+                    <div class="example-section">
+                        <pre><code>title{Tech Talk Series}
+
+topic{Machine Learning Workshop}
+
+body{
+    bigbold{Join us for an exciting workshop!}
+    
+    We are thrilled to announce our upcoming workshop on Machine Learning fundamentals.
+    
+    bold{What you'll learn:}
+    pointers{
+        Basic ML concepts
+        Python for ML
+        Hands-on exercises
+        Real-world applications
+    }
+}
+
+info{
+    Date: 25-03-24
+    Time: 1400 Hours
+    Venue: Online (Zoom)
+    Speaker: Dr. Jane Smith
+}
+
+divider{}
+
+rectangle{
+    image: https://example.com/speaker.jpg
+    name: Dr. Jane Smith
+    Batch: 2015
+    Dept: Computer Science, Stanford University
+    Research Focus: Deep Learning
+    About: Leading researcher in AI with 10+ years of experience
+}
+
+body{
+    bolditalic{Don't miss this opportunity!}
+    
+    link{Register Now url{https://register.example.com}}
+}</code></pre>
+                    </div>
+
+                    <div class="tips-section">
+                        <h3>Best Practices</h3>
+                        <ul>
+                            <li>Add empty lines between sections for better readability</li>
+                            <li>Indent nested content for clearer structure</li>
+                            <li>Ensure all brackets {} are properly closed</li>
+                            <li>Use appropriate formatting for different types of content</li>
+                            <li>Keep the structure consistent across all your scripts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2024 ScriptIT - The Coding Club of IISER Thiruvananthapuram</p>
+            <p class="club-info">Society of Computing, Research and Innovation in Programming and Technology</p>
+            <p class="institute">Indian Institute of Science Education and Research, Thiruvananthapuram</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/ui.js"></script>
+</body>
+</html> 
