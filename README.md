@@ -8,6 +8,7 @@
 - Images linked in the html Header and Footer are hosted in my GDrive. It will be shifted to GitHub soon.
 - Optimized algorithm creation is underway, for even faster generation.
 - More basic functions are being added.
+- Narrow screen support is being added.
 
 ---
 
