@@ -1,24 +1,98 @@
 # Filler - HTML Generator
 
-A web-based tool created by ScriptIT (The Coding Club of IISER Thiruvananthapuram) that converts custom Filler script into formatted HTML content. This tool simplifies the process of creating structured HTML content for events, announcements, and other communications.
+**Filler - HTML Generator** is a web-based tool created by ScriptIT, the Coding Club of IISER Thiruvananthapuram. It is designed to convert custom Filler script into formatted HTML content quickly and easily. This tool simplifies the process of creating structured HTML content for events, announcements, and other communications, allowing you to focus on content creation rather than manual coding.
+
+---
 
 ## Features
 
-- 🎨 Custom scripting language (Filler) for easy content creation
-- 💡 Live HTML generation
-- 📋 Copy to clipboard functionality
-- 💾 Download generated HTML
-- 🌓 Dark/Light theme toggle
-- 📚 Built-in documentation
-- 📱 Responsive design
+- **Filler Script Conversion**: Convert custom Filler script into clean, formatted HTML.
+- **Simple Interface**: Easy-to-use editor for writing scripts and generating HTML content.
+- **Preview**: See a live preview of the generated HTML before finalizing.
+- **Download/Copy**: Copy the HTML to your clipboard or download it as a file for use in your projects.
+- **Help & Documentation**: In-app help icon (?) for quick access to the user guide and scripting references.
 
-## Getting Started
+---
 
-### Prerequisites
+## How to Use
 
-- A modern web browser
-- Local web server (optional, for development)
+1. **Write Your Script**: 
+   - Use the editor to write your content using the Filler scripting language.
+   - Refer to the user guide for syntax and examples.
 
-### Installation
+2. **Generate HTML**:
+   - Click "Generate HTML" to convert your script into the corresponding HTML content.
 
-1. Clone the repository 
+3. **Copy/Download**:
+   - Use the "Copy to Clipboard" button to quickly copy the HTML code to your clipboard.
+   - Or click "Download HTML" to save the generated HTML to your local device.
+
+4. **Get Help**:
+   - Click the help icon (?) for detailed documentation and guidance on using the tool.
+
+---
+
+## Quick Start Guide
+
+### Basic Structure
+
+The Filler script follows a simple structure for creating HTML content. Use the following commands to define different sections of your content:
+
+- **title{...}**: Defines the title of the content.
+- **topic{...}**: Defines the main topic.
+- **body{...}**: Contains the body text of your content.
+- **info{...}**: Displays event details such as date, time, and venue.
+- **rectangle{...}**: Used for creating speaker cards with images, names, and additional details.
+- **divider{}**: Adds a horizontal line divider in the content.
+
+For more advanced uses, refer to the syntax guide within the application.
+
+---
+
+## Example Script
+
+```plaintext
+title{Alumni Discussion}
+
+topic{Unix and their Advantages Over Windows}
+
+body{
+    After the gruelling exam season, we hope all of you get to enjoy the vacation in peace (hopefully). We are happy with the success of the last event, so to continue the trend we are hosting another event,
+    
+    bigbold{A Webinar!}
+    
+    Don't worry, you won't miss out on the fun. It's a webinar, it's online. We hope to see you attend it! :D
+}
+
+info{
+    Date: 17-12-24
+    Time: 2200 Hours
+    Venue: LHC Venus
+    Speakers: Ashutosh Kumar and Krishna Kumar Singh
+}
+
+rectangle{
+    image: https://lh3.googleusercontent.com/d/1ti6lstUddSRzBH_smE2DkTrWUeMtQ2AG
+    name: Ashutosh Kumar
+    Batch: 2019
+    Dept: Faculty of Information Technology, University of Jyväskylä
+    Research Focus: Quantum Information and Computation
+    About: Ashutosh is a trailblazer in the field of quantum computing, leveraging his expertise to solve problems at the intersection of information theory and computation.
+}
+
+divider{}
+
+body{
+    bold{
+        Don't miss this opportunity to:
+    }
+    pointers{
+        Interact with the alumni
+        Potential internships info
+        Learn new things
+        Have fun!! :D
+    }
+    We can't wait to see you there!
+
+    image{https://picsum.photos/700/1000/}
+}
