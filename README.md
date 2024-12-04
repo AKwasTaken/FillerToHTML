@@ -95,8 +95,6 @@ rectangle{
 
 divider{}
 
-image{https://picsum.photos/500/500/}
-
 body{
     bold{
         Don't miss this opportunity to:
@@ -108,4 +106,8 @@ body{
         Have fun!! :D
     }
     We can't wait to see you there!
+
+    image{
+        https://picsum.photos/500/500/
+    }
 }
