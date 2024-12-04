@@ -366,7 +366,7 @@ let outro = `
                                 <tr>
                                     <td align="center">
                                         <h4 style="color: #ffffff; font-size: 18px; font-weight: 600; margin: 0 0 8px;">About Us</h4>
-                                        <p style="color: #ffffff; font-size: 14px; line-height: 1.4; margin: 0;">Society of computing, Research and Innovation in Programming and Technology of IISER Thiruvananthapuram or Script<em>IT</em>, as we call it, is a student-run open Coding Club at the Indian Institute of Science Education and Research, Thiruvananthapuram.</p>
+                                        <p style="color: #ffffff; font-size: 14px; line-height: 1.4; margin: 0;">Society of Computing, Research and Innovation in Programming and Technology of IISER Thiruvananthapuram or Script<em>IT</em>, as we call it, is a student-run open Coding Club at the Indian Institute of Science Education and Research, Thiruvananthapuram.</p>
                                     </td>
                                 </tr>
                             </table>
