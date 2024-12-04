@@ -264,6 +264,10 @@ footer {
     color: var(--text-color);
     border-radius: 8px;
     transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .icon-btn:hover {
