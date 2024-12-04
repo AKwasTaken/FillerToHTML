@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filler - ScriptIT HTML Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lib/codemirror/codemirror.min.css">
+    <link rel="stylesheet" href="lib/codemirror/theme/monokai.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -33,7 +35,7 @@
         </header>
         
         <div class="editor-container">
-            <textarea id="editor" placeholder="Enter your Filler script here..."></textarea>
+            <textarea id="editor"></textarea>
             <div class="button-container">
                 <button id="generate">Generate HTML</button>
                 <button id="copy">Copy to Clipboard</button>
@@ -59,7 +61,7 @@
                 <!-- Overview Tab -->
                 <div class="tab-content active" id="overview">
                     <h3>What is Filler?</h3>
-                    <p>Filler is a simple scripting language created by ScriptIT (The Coding Club of IISER Thiruvananthapuram) to generate structured HTML content for events. It simplifies the process of creating formatted content with various elements like text, images, and links.</p>
+                    <p>Filler is a simple scripting language created for ScriptIT (The Coding Club of IISER Thiruvananthapuram) to generate structured HTML content for events. It simplifies the process of creating formatted content with various elements like text, images, and links.</p>
                     
                     <div class="example-section">
                         <h3>Basic Structure</h3>
@@ -298,11 +300,14 @@ body{
             <p class="copyright">© 2024 ScriptIT - The Coding Club of IISER Thiruvananthapuram</p>
             <p class="club-info">Society of Computing, Research and Innovation in Programming and Technology</p>
             <p class="institute">Indian Institute of Science Education and Research, Thiruvananthapuram</p>
-            <p class="credits">Filler Language created by <span class="author">Aneeth Kumaar</span></p>
         </div>
     </footer>
 
     <script type="module" src="js/script.js"></script>
+    <script src="lib/codemirror/codemirror.min.js"></script>
+    <script src="lib/codemirror/mode/javascript/javascript.min.js"></script>
+    <script src="lib/codemirror/addon/edit/closebrackets.min.js"></script>
+    <script src="lib/codemirror/addon/edit/matchbrackets.min.js"></script>
     <script type="module" src="js/ui.js"></script>
 </body>
 </html> 

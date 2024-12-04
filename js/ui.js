@@ -43,9 +43,33 @@ function handleTabs() {
     });
 }
 
+let editor; // CodeMirror instance
+
 // UI Event Handlers
 document.addEventListener('DOMContentLoaded', () => {
-    const editor = document.getElementById('editor');
+    // Initialize CodeMirror
+    editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+        mode: 'javascript',
+        theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'monokai' : 'default',
+        lineNumbers: true,
+        autoCloseBrackets: true,
+        matchBrackets: true,
+        indentUnit: 4,
+        tabSize: 4,
+        lineWrapping: true,
+        placeholder: 'Enter your Filler script here...',
+        extraKeys: {
+            "Tab": "indentMore",
+            "Shift-Tab": "indentLess"
+        }
+    });
+
+    // Update theme when toggling dark/light mode
+    const updateEditorTheme = () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        editor.setOption('theme', isDark ? 'monokai' : 'default');
+    };
+
     const generateBtn = document.getElementById('generate');
     const copyBtn = document.getElementById('copy');
     const downloadBtn = document.getElementById('download');
@@ -59,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleTabs();
 
     generateBtn.addEventListener('click', () => {
-        const inputScript = editor.value;
+        const inputScript = editor.getValue();
         try {
             generatedHTML = generateHTMLFromInput(inputScript);
             showNotification('HTML generated successfully! Click "Copy" to copy to clipboard.');
@@ -115,7 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    themeToggle.addEventListener('click', toggleTheme);
+    themeToggle.addEventListener('click', () => {
+        toggleTheme();
+        updateEditorTheme();
+    });
     helpBtn.addEventListener('click', toggleHelp);
     closeHelp.addEventListener('click', toggleHelp);
 
