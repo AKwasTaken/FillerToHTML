@@ -5,10 +5,11 @@
 ---
 
 ## Updates in Progress:
-- Images linked in the html Header and Footer are hosted in my GDrive. It will be shifted to GitHub soon.
-- Optimized algorithm creation is underway, for even faster generation.
-- More basic functions are being added.
-- Narrow screen support is being added.
+- Hosting of images used in the header and footer is being shifted from Google Drive to GitHub for better reliability.
+- Optimized algorithms for faster HTML generation are under development.
+- Additional basic functions (e.g., new formatting tags) are being implemented.
+- Support for narrow screens and smaller devices is being added for better responsiveness.
+- Improvements to user notifications and error handling are being worked on.
 
 ---
 
@@ -40,7 +41,11 @@
 
 ---
 
-## Quick Start Guide
+## Credits
+
+This tool leverages **CodeMirror** for the editor functionality, providing syntax highlighting, auto-indentation, and a seamless editing experience. Visit [CodeMirror's official website](https://codemirror.net/) for more information.
+
+---
 
 ### Basic Structure
 
@@ -85,7 +90,7 @@ rectangle{
     Batch: 2019
     Dept: Faculty of IIT Dholakpur
     Research Focus: Quantum Information and Computation
-    About: This is a guy. Nice. He likes Game Of Thrones Season 7. I dont like him.
+    About: This is a guy. Nice. He likes Game Of Thrones Season 7. I don't like him.
 }
 
 divider{}
