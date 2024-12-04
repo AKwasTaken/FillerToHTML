@@ -65,18 +65,46 @@ h1 {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
-#editor {
+.CodeMirror {
     width: 100%;
     height: 500px;
-    background: transparent;
-    border: none;
     color: var(--editor-text);
     font-family: 'JetBrains Mono', monospace;
     font-size: 1rem;
     line-height: 1.5;
-    padding: 1rem;
-    resize: vertical;
-    outline: none;
+    background: var(--editor-bg) !important;
+    border-radius: 8px;
+}
+
+/* CodeMirror Dark Theme Overrides */
+[data-theme="dark"] .CodeMirror {
+    background: var(--editor-bg) !important;
+}
+
+.CodeMirror-gutters {
+    background: var(--editor-bg);
+    border-right: 1px solid var(--border-color);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.CodeMirror-linenumber {
+    color: var(--subtitle-color);
+}
+
+/* Fix dark mode line numbers */
+[data-theme="dark"] .CodeMirror-linenumber {
+    color: #64748b;  /* A muted blue-gray that works well in dark mode */
+}
+
+[data-theme="dark"] .CodeMirror-gutters {
+    background: var(--editor-bg);
+    border-right: 1px solid var(--border-color);
+}
+
+/* Override CodeMirror default styles */
+.CodeMirror-scroll {
+    background: var(--editor-bg);
 }
 
 .button-container {
@@ -270,140 +298,167 @@ footer {
 }
 
 .modal-header {
-    padding: 1.5rem;
+    padding: 1rem;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    background: var(--modal-bg);
+    z-index: 1;
 }
 
 .modal-body {
-    padding: 1.5rem;
-    color: var(--text-color);
+    padding: 1rem;
 }
 
-.modal-body h3 {
-    font-size: 1.5rem;
-    margin: 1.5rem 0 1rem;
-    color: var(--primary-color);
-}
-
-.modal-body h3:first-child {
-    margin-top: 0;
-}
-
-.modal-body h4 {
-    font-size: 1.2rem;
-    margin: 1.5rem 0 0.5rem;
-    color: var(--text-color);
+.tabs {
     display: flex;
-    align-items: center;
     gap: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--modal-bg);
+    position: sticky;
+    top: 3.5rem;
+    z-index: 1;
 }
 
-.modal-body h4::before {
-    content: '#';
-    color: var(--primary-color);
-    font-weight: bold;
+.tab-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--background-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.modal-body p {
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.modal-body ul {
-    list-style: none;
-    padding-left: 1rem;
-    margin: 1rem 0;
-}
-
-.modal-body ul li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-.modal-body ul li::before {
-    content: '•';
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+.tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
 .function-card {
-    background: var(--code-bg);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1rem 0;
+    background: var(--background-color);
     border: 1px solid var(--border-color);
-}
-
-.function-card h4 {
-    margin-top: 0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .function-example {
     background: var(--editor-bg);
-    border-radius: 6px;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    overflow-x: auto;
+}
+
+.function-example code {
+    white-space: pre-wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.code-explanation {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--subtitle-color);
+    font-size: 0.85rem;
+}
+
+.example-section {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.example-section pre {
+    background: var(--editor-bg);
+    padding: 0.75rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+}
+
+.example-section code {
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+}
+
+.tips-section {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     padding: 1rem;
     margin-top: 1rem;
 }
 
-.function-example code {
-    display: block;
-    color: var(--editor-text);
-    line-height: 1.6;
+.modal-body h3 {
+    font-size: 1.2rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--text-color);
 }
 
-.code-explanation {
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border-color);
-    color: var(--subtitle-color);
+.modal-body h4 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem;
+    color: var(--text-color);
+}
+
+.modal-body p {
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
     font-size: 0.9rem;
-    font-style: italic;
 }
 
-/* Style comments in code */
-.function-example code {
-    white-space: pre;
+.modal-body ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0.75rem 0;
 }
 
-.function-example code:not(.no-comments) {
-    color: var(--editor-text);
+.modal-body ul li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
 }
 
-.function-example code:not(.no-comments) ::selection {
-    background: var(--primary-color);
-    color: white;
-}
+@media (max-width: 480px) {
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
 
-.example-section {
-    background: var(--editor-bg);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-}
+    .tabs {
+        top: 3rem;
+    }
 
-.example-section h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-}
+    .tab-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
 
-.tips-section {
-    background: var(--modal-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-}
+    .function-example code,
+    .example-section code {
+        font-size: 0.8rem;
+    }
 
-.tips-section h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
+    .modal-body {
+        padding: 0.75rem;
+    }
+
+    .function-card,
+    .example-section,
+    .tips-section {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
 }
 
 .close-btn {
@@ -412,29 +467,8 @@ footer {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-color);
-}
-
-.tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.tab-btn {
-    background: none;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    color: var(--text-color);
-    border-bottom: 2px solid transparent;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.tab-btn.active {
-    border-bottom-color: var(--primary-color);
-    color: var(--primary-color);
+    padding: 0.5rem;
+    line-height: 1;
 }
 
 .tab-content {
@@ -443,30 +477,4 @@ footer {
 
 .tab-content.active {
     display: block;
-}
-
-pre {
-    background-color: var(--code-bg);
-    padding: 1rem;
-    border-radius: 8px;
-    overflow-x: auto;
-    margin: 1rem 0;
-}
-
-code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-}
-
-.creator-section {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    text-align: center;
-    color: var(--subtitle-color);
-}
-
-.creator-section .author {
-    color: var(--primary-color);
-    font-weight: 600;
 }
