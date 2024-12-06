@@ -126,7 +126,11 @@ function BodyElements(content, style = 'normal') {
             return intro + cont + outro;
         case 'link':
             let text = content[0];
-            let url = content[1];
+            let url = content[1][1];
+
+            if (!url.includes("://")) {
+                url = "https://" + url;
+            }
 
             return `
             <a href="${url}" style="color: #25D366; text-decoration: none; display: inline-block;">
